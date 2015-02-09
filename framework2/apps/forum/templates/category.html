@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb category.name "/forum/"|add:category.slug %}
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+
+    <ul class="list-group">
+    {% for childcategory in childcategories %}
+        <li class="list-group-item">
+            <i class="glyphicon glyphicon-chevron-right">&nbsp;</i>
+            <a href="{{ childcategory.slug }}">{{ childcategory }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+
+    <ul class="list-group">
+    {% for post in posts reversed %}
+        <li class="list-group-item"><a href="category/{{ post.id }}">{{ post }}</a></li>
+    {% endfor %}
+    </ul>
+
+    {% if user.is_authenticated %}<a href="category/new/" class="btn btn-primary">{% trans "New thread" %}</a>{% endif %}
+
+{% endblock %}

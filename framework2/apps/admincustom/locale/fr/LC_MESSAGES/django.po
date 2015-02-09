@@ -1,0 +1,164 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-05 22:49+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: templates/forum.html:15
+msgid "Forum Admin"
+msgstr ""
+
+#: templates/forum.html:17
+msgid ""
+"This is a list of all the categories and child categories of the forum, "
+"click on one of them to edit it."
+msgstr ""
+"Voici une liste de toutes les categories et sous categories du forum, "
+"cliquez sur l'une d'entre elles pour la modifier."
+
+#: templates/forum.html:23
+msgid "Name"
+msgstr "Nom"
+
+#: templates/forum.html:24
+msgid "Slug"
+msgstr ""
+
+#: templates/forum.html:25 templates/users.html:30
+msgid "Delete"
+msgstr "Supprimer"
+
+#: templates/forum.html:40
+msgid "New Childcategory"
+msgstr "Nouvelle sous-categorie"
+
+#: templates/forum.html:41
+msgid "New Category"
+msgstr "Nouvelle categorie"
+
+#: templates/portal.html:15
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: templates/portal.html:18
+msgid "Forum"
+msgstr ""
+
+#: templates/portal.html:21
+msgid "Tickets"
+msgstr ""
+
+#: templates/ticketassignation.html:5
+msgid "Tickets assigned to "
+msgstr "Ticekts assignes a"
+
+#: templates/ticketassignation.html:7
+#, python-format
+msgid ""
+"This is the ticket spool assigned to <b>%(verbose_assigned_to)s</b>, click "
+"on one of them to answer it."
+msgstr ""
+"Voici le spool de ticket assigne a <b>%(verbose_assigned_to)s</b>, cliquez "
+"sur l'un d'entre eux pour y repondre."
+
+#: templates/ticketassignation.html:13
+msgid "Title"
+msgstr "Titre"
+
+#: templates/ticketassignation.html:14
+msgid "Author"
+msgstr "Auteur"
+
+#: templates/ticketassignation.html:15
+msgid "Creation date"
+msgstr "Date de creation"
+
+#: templates/ticketassignation.html:16
+msgid "Assigned to"
+msgstr "ASsigne a "
+
+#: templates/ticketassignation.html:17
+msgid "Resolved by"
+msgstr "Resolu par"
+
+#: templates/ticketassignation.html:18
+msgid "Resolved at"
+msgstr "Resolu le"
+
+#: templates/ticketassignation.html:19
+msgid "Resolved"
+msgstr "Resolu"
+
+#: templates/ticketupdatedetails.html:14
+msgid "Opened by:"
+msgstr "Ouvert par :"
+
+#: templates/ticketupdatedetails.html:17
+msgid "Creation date:"
+msgstr "Date de creation"
+
+#: templates/ticketupdatedetails.html:18
+msgid "Resolved:"
+msgstr "Resolu :"
+
+#: templates/ticketupdatedetails.html:19
+msgid "Resolved by:"
+msgstr "Resolu par :"
+
+#: templates/ticketupdatedetails.html:20
+msgid "Resolution date:"
+msgstr "Date de resolution :"
+
+#: templates/users.html:15
+msgid "Users Admin"
+msgstr "Admin"
+
+#: templates/users.html:17
+msgid "This is a list of all the users, click on one of them to edit it."
+msgstr "Voici une liste de tous les utilisateurs, cliquez sur l'un d'entre eux pour l'editer"
+
+#: templates/users.html:23
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: templates/users.html:24
+msgid "First name"
+msgstr "Prenom"
+
+#: templates/users.html:25
+msgid "Last name"
+msgstr "Nom"
+
+#: templates/users.html:26
+msgid "Email"
+msgstr "Adresse email"
+
+#: templates/users.html:27
+msgid "Date joined"
+msgstr "Inscrit le"
+
+#: templates/users.html:28
+msgid "Last login"
+msgstr "Derniere connexion"
+
+#: templates/users.html:29
+msgid "Is staff"
+msgstr "Est admin"
+
+#: templates/users.html:50
+msgid "New user"
+msgstr "Nouvel utilisateur"

@@ -1,0 +1,38 @@
+{% load i18n %}
+{% block ticketassignation %}
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">{% trans "Tickets assigned to "|add:verbose_assigned_to %}</div>
+    <div class="panel-body">
+        <p>{% blocktrans %}This is the ticket spool assigned to <b>{{ verbose_assigned_to }}</b>, click on one of them to answer it.{% endblocktrans %}</p>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>{% trans "Title" %}</th>
+            <th>{% trans "Author" %}</th>
+            <th>{% trans "Creation date" %}</th>
+            <th>{% trans "Assigned to" %}</th>
+            <th>{% trans "Resolved by" %}</th>
+            <th>{% trans "Resolved at" %}</th>
+            <th>{% trans "Resolved" %}</th>
+        </tr>
+
+        {% for ticket in object_list reversed %}
+            {% if ticket.assigned_to == assigned_to %}
+                <tr>
+                    <td>{{ ticket.id }}</td>
+                    <td><a href="{{ ticket.id }}/">{{ ticket.title }}</a></td>
+                    <td>{{ ticket.author }}</td>
+                    <td>{{ ticket.creation_date }}</td>
+                    <td>{{ ticket.assigned_to }}</td>
+                    <td>{{ ticket.validated_by }}</td>
+                    <td>{{ ticket.validated_at }}</td>
+                    <td>{{ ticket.resolved }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

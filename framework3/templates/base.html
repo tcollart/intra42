@@ -1,0 +1,55 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
+{% load django_bootstrap_breadcrumbs %}
+    <link href= {% static "css/styles.css" %} rel="stylesheet" type="text/css">
+</head>
+
+<body style="width: 1000px; margin: auto;">
+{% block nav %}
+
+    <nav class="navbar navbar-default" style="margin: 50px 0;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <a class="navbar-brand" href="/">{% trans "Framework 3" %}</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/">{% trans "Index" %}</a></li>
+                    <li><a href="/forum/">{% trans "Forum" %}</a></li>
+                    <li><a href="/tickets/">{% trans "Tickets" %}</a></li>
+                    {% if not user.is_authenticated %}
+                        <li><a href="/signup/">{% trans "Sign up" %}</a></li>
+                        <li><a href="/signin/">{% trans "Sign in" %}</a></li>
+                    {% else %}
+                        {% if user.is_staff %}
+                            <li><a href="/myadmin/">{% trans "Admin" %}</a></li>
+                            <li><a href="/admin/">Django {% trans "Admin" %}</a></li>
+                        {% endif %}
+                        <li><a href="/signout/">{% trans "Sign out" %} (<b>{{ user }}</b>)</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+{% endblock %}
+   <section id="content" class="content-format">
+   {% block breadcrumbs %}
+        {% breadcrumb "Home" "/forum/" %}
+    {% endblock %}
+       {% block content %}{% render_breadcrumbs %}{% endblock %}
+   </section>
+<footer style="margin-top: 50px;"></footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <h2>{% trans "Elements to set up:" %}</h2>
+    <h4>{% trans "Internationalisation:" %}</h4>
+    <ul>
+        <li>{% blocktrans %}As first feature, on your index, you should be able to choose a language.
+            The whole website will be translated in this language.
+            Use your framework.
+            The chosen language is saved as user preference for his next visit.
+            {% endblocktrans %} [√]</li>
+    </ul>
+
+    <h4><a href="/forum/">{% trans "Forum" %}</a> :</h4>
+    <ul>
+        <li><b>{% trans "Categories:" %}</b> {% blocktrans %}You should be able to create / modify / delete categories.{% endblocktrans %} [√]</li>
+        <li><b>{% trans "ChildCategories:" %}</b> {% blocktrans %}Same for the child-categories.{% endblocktrans %} [√]</li>
+        <li><b>{% trans "Threads:" %}</b> {% blocktrans %}A thread belongs to a category or a child-category.
+            You should be able to answer to a thread and comment an answer.
+            {% endblocktrans %} [√]</li>
+    </ul>
+
+    <h4><a href="/tickets/">{% trans "Tickets" %}</a> :</h4>
+    <ul>
+        <li><b>{% trans "Ticket creation:" %}</b> {% blocktrans %}Users can create a ticket.{% endblocktrans %} [√]</li>
+        <li><b>{% trans "Ticket spool:" %}</b> {% blocktrans %}Created tickets are listed in the spool, only an admin user can access the spool.
+            Here, an admin user can answer or attribute a ticket to another admin user.{% endblocktrans %} [√]</li>
+        <li><b>{% trans "Ticket status:" %}</b> {% blocktrans %}A ticket is open or closed.
+            Once closed, it can be reopened by its author or an admin user.{% endblocktrans %} [√]</li>
+    </ul>
+{% endblock %}

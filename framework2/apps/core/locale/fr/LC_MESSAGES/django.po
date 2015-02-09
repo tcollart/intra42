@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-04 03:07+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: templates/admin.html:6 templates/admin.html.py:13
+msgid "Admin"
+msgstr ""
+
+#: templates/admin.html:10
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: templates/admin.html:11
+msgid "Email"
+msgstr "Adresse email"
+
+#: templates/admin.html:12 templates/admin.html.py:20
+msgid "Password"
+msgstr "Mot de passe"
+
+#: templates/contact.html:6
+msgid "Contact"
+msgstr ""
+
+#: templates/contact.html:10
+msgid "Submit"
+msgstr "Valider"
+
+#: templates/index.html:5
+msgid "Elements to set up:"
+msgstr "Elements a mettre en place "
+
+#: templates/index.html:6
+msgid "Internationalisation:"
+msgstr ""
+
+#: templates/index.html:8
+msgid ""
+"As first feature, on your index, you should be able to choose a language.\n"
+"            The whole website will be translated in this language.\n"
+"            Use your framework.\n"
+"            The chosen language is saved as user preference for his next "
+"visit.\n"
+"            "
+msgstr ""
+"Comme premiere feature, sur votre page d’accueil, vous devez pouvoir choisir la langue de votre site.\n"
+"            Tout le site sera traduit dans la langue selectionne. Pensez a utiliser votre framework.\n"
+"            Quand vous vous deloguer de votre site, il doit enregistrer la langue choisie "
+"            pour une prochaine connexion.\n"
+"            "
+
+#: templates/index.html:15
+msgid "Forum"
+msgstr ""
+
+#: templates/index.html:17
+msgid "Categories:"
+msgstr "Categories :"
+
+#: templates/index.html:17
+msgid "You should be able to create / modify / delete categories."
+msgstr "Vous devez pouvoir ajouter / modifier / supprimer des categories."
+
+#: templates/index.html:18
+msgid "ChildCategories:"
+msgstr "Sous-categories :"
+
+#: templates/index.html:18
+msgid "Same for the child-categories."
+msgstr "Meme chose que pour les categories."
+
+#: templates/index.html:19
+msgid "Threads:"
+msgstr "Threads :"
+
+#: templates/index.html:19
+msgid ""
+"A thread belongs to a category or a child-category.\n"
+"            You should be able to answer to a thread and comment an answer.\n"
+"            "
+msgstr ""
+"Les threads peuvent appartenir a une categorie ou une sous-categorie.\n"
+"            Vous devez pouvoir repondre dans un thread et commenter un reponse.\n"
+"            "
+
+#: templates/index.html:25
+msgid "Tickets"
+msgstr ""
+
+#: templates/index.html:27
+msgid "Ticket creation:"
+msgstr "Creation de ticket :"
+
+#: templates/index.html:27
+msgid "Users can create a ticket."
+msgstr "Tous les utilisateurs peuvent creer un ticket."
+
+#: templates/index.html:28
+msgid "Ticket spool:"
+msgstr "Spool de ticket :"
+
+#: templates/index.html:28
+msgid ""
+"Created tickets are listed in the spool, only an admin user can access the "
+"spool.\n"
+"            Here, an admin user can answer or attribute a ticket to another "
+"admin user."
+msgstr ""
+"Les tickets crees arrivent dans le spool, seuls les admins ont acces. \n"
+"            C’est ici ou les admins peuvent repondre ou attribuer le ticket a un autre admin."
+
+#: templates/index.html:30
+msgid "Ticket status:"
+msgstr "Etat d’un ticket :"
+
+#: templates/index.html:30
+msgid ""
+"A ticket is open or closed.\n"
+"            Once closed, it can be reopened by its author or an admin user."
+msgstr ""
+"Le ticket peut etre ouvert ou ferme.\n"
+"            Une fois ferme, il peut etre reouvert celui qui l’a cree ou l’admin."
+
+#: templates/signin.html:7 templates/signin.html.py:11
+msgid "Sign in"
+msgstr "Se connecter"
+
+#: templates/signup.html:7
+msgid "Sign up"
+msgstr "S'enregistrer"
+
+#: templates/signup.html:11
+msgid "Register"
+msgstr "S'enregistrer"

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-heading">Users Admin</div>
+        <div class="panel-body">
+            <p>This is a list of all the users, click on one of them to edit it.</p>
+        </div>
+
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Date joined</th>
+                <th>Last login</th>
+                <th>Is staff</th>
+                <th>Delete</th>
+            </tr>
+
+            {% for user in object_list %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td><a href="{{ user.id }}/">{{ user.username }}</a></td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.date_joined }}</td>
+                <td>{{ user.last_login }}</td>
+                <td><img src="/static/admin/img/icon-{% if user.is_staff %}yes{% else %}no{% endif %}.gif"></td>
+                <td><a href="delete/{{ user.id }}/"><i class="glyphicon glyphicon-remove"></i></a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    <a href="create/" class="btn btn-primary pull-right">New user</a>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block content %}
+    <div class="panel panel-default">
+    <div class="panel-heading"><b>{{ ticket.title }}</b> - {% trans "Opened by:" %} <b>{{ ticket.author }}</b></div>
+    <div class="panel-body"><p>{{ ticket.message }}</p>
+    <p>
+        {% trans "Creation date:" %} {{ ticket.creation_date }} -
+        {% trans "Resolved:" %} {{ ticket.resolved }} -
+        {% trans "Resolved by:" %} {{ ticket.validated_by }} -
+        {% trans "Resolution date:" %} {{ ticket.validated_at }}
+    </p>
+    {% for ticketanswer in ticketanswers %}
+        <hr>
+        <div class="panel-body"><p><b>{{ ticketanswer.author }}:</b> {{ ticketanswer.message }}</p>
+            {{ ticketanswer.creation_date }}
+        </div>
+    {% endfor %}
+    </div>
+
+</div>
+    <form action="" method="post">{% csrf_token %}
+    {% if not ticket.resolved %}
+        {% bootstrap_form form %}
+        <input class="btn btn-primary" type="submit" style="width:100%" value="{% trans "Answer" %}">
+    {% else %}
+        <input class="btn btn-primary" type="submit" style="width:100%" value="{% trans "Reopen" %}">
+    {% endif %}
+    </form>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% if childcategory %}
+        {% breadcrumb category "/forum/"|add:category.slug %}
+        {% breadcrumb childcategory "/forum/"|add:category.slug|add:"/"|add:childcategory.slug %}
+    {% else %}
+        {% breadcrumb category "/forum/"|add:category %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+{{ block.super }}
+<form action="" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input class="btn btn-primary pull-right" type="submit" value="{% trans 'Create' %}" />
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+{#    {% breadcrumb category.name "/forum/"|add:category.slug %}#}
+{#    {% breadcrumb childcategory.name "/forum/"|add:category.slug|add:"/"|add:childcategory.slug %}#}
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-default">
+    <div class="panel-heading"><b>{{ ticket.title }}</b> - {% trans "Opened by:" %} <b>{{ ticket.author }}</b></div>
+    <div class="panel-body"><p>{{ ticket.message }}</p>
+    <p>
+        {% trans "Creation date:" %} {{ ticket.creation_date }} -
+        {% trans "Resolved:" %} {{ ticket.resolved }} -
+        {% trans "Resolved by:" %} {{ ticket.validated_by }} -
+        {% trans "Resolution date:" %} {{ ticket.validated_at }}
+    </p>
+    {% for ticketanswer in answers %}
+        <hr>
+        <div class="panel-body"><p><b>{{ ticketanswer.author }}:</b> {{ ticketanswer.message }}</p>
+            {{ ticketanswer.creation_date }}
+        </div>
+    {% endfor %}
+    </div>
+    </div>
+    <form action="" method="post">{% csrf_token %}
+        {% bootstrap_form form %}
+        <div>&nbsp;</div>
+        <input class="btn btn-primary pull-right" style="width: 100%;" type="submit" value="Update and/or Answer" />
+    </form>
+
+{% endblock %}

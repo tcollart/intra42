@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+{#    {% breadcrumb category.name "/forum/"|add:category.slug %}#}
+{#    {% breadcrumb childcategory.name "/forum/"|add:category.slug|add:"/"|add:childcategory.slug %}#}
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">{% trans "Users Admin" %}</div>
+        <div class="panel-body">
+            <p>{% blocktrans %}This is a list of all the users, click on one of them to edit it.{% endblocktrans %}</p>
+        </div>
+
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>{% trans "Username" %}</th>
+                <th>{% trans "First name" %}</th>
+                <th>{% trans "Last name" %}</th>
+                <th>{% trans "Email" %}</th>
+                <th>{% trans "Date joined" %}</th>
+                <th>{% trans "Last login" %}</th>
+                <th>{% trans "Is staff" %}</th>
+                <th>{% trans "Delete" %}</th>
+            </tr>
+
+            {% for user in object_list %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td><a href="{{ user.id }}/">{{ user.username }}</a></td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.date_joined }}</td>
+                <td>{{ user.last_login }}</td>
+                <td><img src="/static/admin/img/icon-{% if user.is_staff %}yes{% else %}no{% endif %}.gif"></td>
+                <td><a href=""><i class="glyphicon glyphicon-remove"></i></a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    <a href="create/" class="btn btn-primary pull-right">{% trans "New user" %}</a>
+
+{% endblock %}

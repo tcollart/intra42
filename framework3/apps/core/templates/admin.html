@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block content %}
+    <h2>{% trans "Admin" %}</h2>
+    <table style="width:75%">
+
+        <tr>
+            <th style="width: 30%;">{% trans "Username" %}</th>
+            <th style="width: 35%;">{% trans "Email" %}</th>
+            <th style="width: 30%;">{% trans "Password" %}</th>
+            <th style="width: 5%;">{% trans "Admin" %}</th>
+        </tr>
+        <tr><td><hr/></td></tr>
+        {% for user in users %}
+        <tr>
+            <td style="width: 30%;"><input class="form-control" placeholder="{{ user }}"/></td>
+            <td style="width: 35%;"><input class="form-control" placeholder="{{ user.email }}"/></td>
+            <td style="width: 30%;"><input class="form-control" placeholder="{% trans 'Password' %}"/></td>
+            <td style="width: 5%; text-align:right;">
+            {% if user.is_staff %}
+                <i class="glyphicon glyphicon-ok" style="color:green;"></i>
+            {% else %}
+                <i class="glyphicon glyphicon-remove" style="color:red;"></i>
+            {% endif %}
+            </td>
+        </tr>
+         {% endfor %}
+
+    </table>
+
+{% endblock %}

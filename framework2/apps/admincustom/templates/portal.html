@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+{#    {% breadcrumb category.name "/forum/"|add:category.slug %}#}
+{#    {% breadcrumb childcategory.name "/forum/"|add:category.slug|add:"/"|add:childcategory.slug %}#}
+{% endblock %}
+
+{% block content %}
+    <div class="btn-group btn-group-justified" role="group" aria-label="Admin Menu">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default"><a href="user/">{% trans "Users" %}</a></button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default"><a href="forum/">{% trans "Forum" %}</a></button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default"><a href="tickets/">{% trans "Tickets" %}</a></button>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+    <h2>Eléments a mettre en place:</h2>
+    <ul>
+        <li>Une <a href="/">page d’accueil</a></li>
+        <li>Une section <a href="/signin/">login</a> / <a href="/signout/">logout</a> / <a href="/signup/">création de compte</a></li>
+        <li>Un <a href="/admin/">panel admin</a> (gestion des utilisateurs / groupes / etc..) voir CRUD</li>
+        <li>De l’URL rewriting => <span id="urlrewriting"></span><script>$('#urlrewriting').append(window.location.href)</script></li>
+        <li>Une gestion des permissions correcte => <a href="/admin/">Admin</a></li>
+        <li>De l’encryption (aucun mot de passe en clair) <a href="/admin/auth/user/1/">Utilisateur 1</a></li>
+        <li>De l’HTTPS => <span id="https"></span><script>$('#https').append(window.location.href)</script></li>
+        <li>Formulaire de <a href="/contact/">contact</a> ou newsletter (envoie de mail)</li>
+        <li>De la data validation => <a href="/signin/">login</a> ou <a href="/signup/">création de compte</a></li>
+    </ul>
+{% endblock %}

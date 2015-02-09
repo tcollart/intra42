@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block content %}
+<div class="panel panel-default">
+  <div class="panel-heading">{% trans "Your tickets" %}</div>
+  <div class="panel-body">
+      <p>{% trans "Your tickets" %}</p>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+      <tr>
+          <th>#</th>
+          <th>{% trans "Ticket title" %}</th>
+          <th>{% trans "Creation date" %}</th>
+          <th>{% trans "Resolution date" %}</th>
+          <th>{% trans "Resolved by" %}</th>
+          <th>{% trans "Status" %}</th>
+      </tr>
+      {% for ticket in tickets reversed %}
+      <tr>
+          <td>{{ forloop.revcounter }}</td>
+          <td><a href="{{ ticket.id }}">{{ ticket.title }}</a></td>
+          <td>{{ ticket.creation_date }}</td>
+          <td>{{ ticket.validated_at }}</td>
+          <td>{{ ticket.validated_by }}</td>
+          <td>{{ ticket.resolved }}</td>
+      </tr>
+      {% endfor %}
+  </table>
+</div>
+      <a href="new/" class="btn btn-primary pull-right">{% trans "New ticket" %}</a>
+
+{% endblock %}

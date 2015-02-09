@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block content %}
+    <h2>{% trans "Contact" %}</h2>
+    <form action="/contact/" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">{% trans "Submit" %}</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block content %}
+    {{ block.super }}
+
+    <div class="panel panel-default">
+        {% for category, childcategories in categories.items %}
+        <div class="panel-heading"><h5><a href="{{ category.slug }}">{{ category }}</a></h5></div>
+        <ul class="list-group">
+        {% for childcategory in childcategories %}
+            <li class="list-group-item">
+                <i class="glyphicon glyphicon-chevron-right">&nbsp;</i>
+                <a href="{{ category.slug }}/{{ childcategory.slug }}">{{ childcategory }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+    </div>
+{% endblock %}

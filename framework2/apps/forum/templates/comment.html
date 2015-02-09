@@ -1,0 +1,24 @@
+{% load i18n %}
+
+{% block commenttemplate %}
+<ul class="list-group">
+    {% for comment in post.comments %}
+        <li class="list-group-item"><b>{{ comment.author }}:</b> {{ comment.message }}</li>
+    {% endfor %}
+        {% if user.is_authenticated %}
+        <div>
+            <div class="answerorcomment commentfield commentanswer">
+                <label for="comment">{% trans "Comment:" %}</label>
+                <textarea class="form-control" rows="2"></textarea>
+                <div style="margin:5px;">
+                    <button type="submit" class="btn btn-primary pull-right btn-sm label-success submitcommentbutton" {% if post.title %}threadid="{{ post.id }}"{% else %}answerid="{{ post.id }}"{% endif %}>{% trans "Submit" %}</button>
+                    <button type="submit" class="btn btn-primary pull-right btn-sm label-danger cancelcommentbutton" style="margin-right:5px;">{% trans "Cancel" %}</button>
+                </div>
+            </div>
+            <div class="commentbutton">
+                <button class="btn btn-primary pull-right btn-sm" type="button">{% trans "Comment" %}</button>
+            </div>
+        </div>
+        {% endif %}
+</ul>
+{% endblock %}

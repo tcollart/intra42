@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+{#    {% breadcrumb category.name "/forum/"|add:category.slug %}#}
+{#    {% breadcrumb childcategory.name "/forum/"|add:category.slug|add:"/"|add:childcategory.slug %}#}
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">{% trans "Forum Admin" %}</div>
+        <div class="panel-body">
+            <p>{% blocktrans %}This is a list of all the categories and child categories of the forum, click on one of them to edit it.{% endblocktrans %}</p>
+        </div>
+
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>{% trans "Name" %}</th>
+                <th>{% trans "Slug" %}</th>
+                <th>{% trans "Delete" %}</th>
+            </tr>
+
+            {% for category in object_list %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td><a href="{{ category.id }}/">{{ category.name }}</a></td>
+                <td>{{ category.slug }}</td>
+                <td><a href=""><i class="glyphicon glyphicon-remove"></i></a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+<span class="pull-right">
+    <a href="create/childcategory/" class="btn btn-primary ">{% trans "New Childcategory" %}</a>
+    <a href="create/category/" class="btn btn-primary ">{% trans "New Category" %}</a>
+</span>
+{% endblock %}

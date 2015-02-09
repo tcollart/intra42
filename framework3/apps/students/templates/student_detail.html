@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block content %}
+    <h2>{% trans "Facebook" %}</h2>
+    {{ object }}
+    {{ object.user.first_name }}
+    {{ object.user.last_name }}
+    {{ object.user.last_login }}
+    {{ object.phone_number }}
+{% endblock %}

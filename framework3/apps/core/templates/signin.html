@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block content %}
+
+    <h2>{% trans "Sign in" %}</h2>
+    <form action="/signin/" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        Pool:
+        <select name="pool" class="btn btn-default dropdown-toggle">
+          <option value="july">{% trans "July" %}</option>
+          <option value="august">{% trans "August" %}</option>
+          <option value="september">{% trans "September" %}</option>
+        </select>
+        &nbsp;
+        Year:
+        <select name="year" class="btn btn-default dropdown-toggle">
+          <option value="2013">2013</option>
+          <option value="2014">2014</option>
+        </select>
+        <button type="submit" class="btn btn-primary pull-right">{% trans "Sign in" %}</button>
+    </form>
+{% endblock %}

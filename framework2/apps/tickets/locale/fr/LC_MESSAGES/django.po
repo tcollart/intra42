@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-04 03:07+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: templates/ticketcreation.html:9
+msgid "Create"
+msgstr "Créer"
+
+#: templates/ticketdetails.html:6
+msgid "Title:"
+msgstr "Titre :"
+
+#: templates/ticketdetails.html:7
+msgid "Opened by:"
+msgstr "Ouvert par :"
+
+#: templates/ticketdetails.html:8
+msgid "Message:"
+msgstr "Message :"
+
+#: templates/ticketdetails.html:9
+msgid "Creation date:"
+msgstr "Date de création :"
+
+#: templates/ticketdetails.html:10
+msgid "Resolved:"
+msgstr "Résolu :"
+
+#: templates/ticketdetails.html:11
+msgid "Resolved by:"
+msgstr "Résolu par :"
+
+#: templates/ticketdetails.html:12
+msgid "Resolution date:"
+msgstr "Résolu le :"
+
+#: templates/usertickets.html:7 templates/usertickets.html.py:9
+msgid "Your tickets"
+msgstr "Vos tickets :"
+
+#: templates/usertickets.html:16
+msgid "Ticket title"
+msgstr "Titre du ticket"
+
+#: templates/usertickets.html:17
+msgid "Creation date"
+msgstr "Date de création"
+
+#: templates/usertickets.html:18
+msgid "Resolution date"
+msgstr "Date de résolution"
+
+#: templates/usertickets.html:19
+msgid "Resolved by"
+msgstr "Résolu par"
+
+#: templates/usertickets.html:20
+msgid "Status"
+msgstr "Statut"
+
+#: templates/usertickets.html:34
+msgid "New ticket"
+msgstr "Nouveau ticket"

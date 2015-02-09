@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block content %}
+    <script>if ('{{ user.is_authenticated }}' === 'True') window.location.replace(window.location.origin);</script>
+    <h2>{% trans "Sign up" %}</h2>
+    <form method="post" action="">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-primary">{% trans "Register" %}</button>
+</form>
+{% endblock %}

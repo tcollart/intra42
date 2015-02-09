@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% load django_bootstrap_breadcrumbs %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% breadcrumb category.name "/forum/"|add:category.slug %}
+    {% if childcategory %}
+        {% breadcrumb childcategory.name "/forum/"|add:category.slug|add:"/"|add:childcategory.slug %}
+        {% breadcrumb thread.title "/forum/"|add:childcategory.slug %}
+    {% else %}
+        {% breadcrumb thread.title "/forum/"|add:category.slug %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+{{ block.super }}
+<script>
+
+function toggleAnswer() {
+    $("#answerfield").toggle();
+    $("#answerbutton").toggle();
+}
+
+$(document).ready(function(){
+    $(".commentbutton").click(function(){
+        $(this).parent().find(".commentanswer").toggle();
+        $(this).toggle();
+
+    });
+    $(".cancelcommentbutton").click(function(){
+        $(this).parent().parent().parent().find(".commentbutton").toggle();
+        $(this).parent().parent().toggle();
+    });
+    $(".submitcommentbutton").click(function() {
+        if ($(this).parent().parent().find('textarea').val() == "") {
+            return;
+        }
+        $.ajax({
+            url:'',
+            type: "POST",
+            data: {
+                type: 'comment',
+                csrfmiddlewaretoken: "{{ csrf_token }}",
+                author: '{{ user }}',
+                message: $(this).parent().parent().find('textarea').val(),
+                threadid: $(this).attr('threadid'),
+                answerid: $(this).attr('answerid')
+            },
+            success:function(response){window.location.reload(true);},
+            complete:function(){},
+            error:function (xhr, textStatus, thrownError){}
+        });
+    });
+});
+
+function submitAnswer() {
+    var answer = $("#answer").val();
+    if (answer == "") {
+        return;
+    }
+    $.ajax({
+        url:'',
+        type: "POST",
+        data: {
+            type: 'answer',
+            csrfmiddlewaretoken: "{{ csrf_token }}",
+            author: '{{ user }}',
+            message: answer
+        },
+        success:function(response){window.location.reload(true);},
+        complete:function(){},
+        error:function (xhr, textStatus, thrownError){}
+    });
+}
+</script>
+<div class="panel panel-default">
+    <div class="panel-heading">{{ thread.title }}</div>
+    <div class="panel-body"><p><b>{{ thread.author }}:</b> {{ thread.message }}</p>
+        {% include "comment.html" with post=thread %}
+    </div>
+    {% for answer in answers %}
+        <hr>
+        <div class="panel-body"><p><b>{{ answer.author }}:</b> {{ answer.message }}</p>
+            {% include "comment.html" with post=answer %}
+        </div>
+    {% endfor %}
+</div>
+    {% if user.is_authenticated %}
+<div class="answerorcomment" id="answerfield">
+    <label for="comment">{% trans "Answer:" %}</label>
+    <textarea class="form-control" rows="5" id="answer" placeholder="{% trans 'Your answer ...' %}"></textarea>
+    <div style="margin:5px;">
+        <button type="submit" class="btn btn-primary pull-right btn-sm label-success" onclick="submitAnswer()">{% trans "Submit" %}</button>
+        <button type="submit" class="btn btn-primary pull-right btn-sm label-danger" onclick="toggleAnswer()" style="margin-right:5px;">{% trans "Cancel" %}</button>
+    </div>
+</div>
+<div onclick="toggleAnswer()" id="answerbutton">
+    <button class="btn btn-primary" type="button" style="width:100%">{% trans "Answer" %}</button>
+</div>
+    {% endif %}
+{% endblock %}
