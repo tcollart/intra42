@@ -1,8 +1,9 @@
 from datetime import datetime
 
-from django.views.generic import ListView, CreateView
-from django.shortcuts import render
 from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.views.generic import ListView, CreateView
 
 from .models import Ticket, TicketAnswer
 from .forms import AnswerForm
@@ -33,6 +34,9 @@ class TicketCreate(CreateView):
 
 def details(request, ticket_id):
 
+    if not Ticket.objects.filter(pk=ticket_id, author=request.user.id):
+        return HttpResponseRedirect("/")
+
     if request.method == 'POST':
         form = AnswerForm(request.POST)
         if form.is_valid():
@@ -53,11 +57,3 @@ def details(request, ticket_id):
     ticket_answers = TicketAnswer.objects.filter(ticket_related=ticket)
 
     return render(request, 'ticketdetails.html', {'ticket': ticket, 'ticketanswers': ticket_answers, 'form': form})
-
-'''
-author = models.ForeignKey(User, related_name='TicketAnswerAuthor')
-    message = models.TextField(max_length=10000, blank=False)
-    creation_date = models.DateField(default=datetime.now)
-
-    ticket_related = models.ForeignKey(Ticket, related_name='TicketAnswer')
-'''

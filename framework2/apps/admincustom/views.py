@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.views.generic import TemplateView, ListView, CreateView, UpdateView
+from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView
 
 from .forms import UpdateUserForm, TicketAdminAnswer
 from apps.forum.models import BaseCategory, Category, ChildCategory
@@ -22,13 +22,13 @@ class UserCreation(CreateView):
     model = User
     template_name = "creation.html"
     fields = ['username', 'first_name', 'last_name', 'email', 'is_staff', 'is_active', 'password']
-    success_url = "/myadmin/user/"
+    success_url = "/admin/user/"
 
 
 class UserDetails(UpdateView):
     model = User
     template_name = "details.html"
-    success_url = "/myadmin/user/"
+    success_url = "/admin/user/"
     form_class = UpdateUserForm
 
     def form_valid(self, form):
@@ -39,6 +39,12 @@ class UserDetails(UpdateView):
         return super(UserDetails, self).form_valid(form)
 
 
+class UserDeletion(DeleteView):
+    model = User
+    template_name = "user_confirm_delete.html"
+    success_url = "/admin/user/"
+
+
 class ForumList(ListView):
     model = BaseCategory
     template_name = "forum.html"
@@ -47,19 +53,19 @@ class ForumList(ListView):
 class ChildCategoryCreation(CreateView):
     model = ChildCategory
     template_name = "creation.html"
-    success_url = "/myadmin/forum/"
+    success_url = "/admin/forum/"
 
 
 class CategoryCreation(CreateView):
     model = Category
     template_name = "creation.html"
-    success_url = "/myadmin/forum/"
+    success_url = "/admin/forum/"
 
 
 class ForumDetails(UpdateView):
     model = BaseCategory
     template_name = "details.html"
-    success_url = "/myadmin/forum/"
+    success_url = "/admin/forum/"
 
 
 class TicketList(ListView):

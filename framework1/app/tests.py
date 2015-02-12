@@ -56,7 +56,6 @@ class Framework1TestCase(TestCase):
         response = self.client.get('/signout/')
         self.assertRedirects(response, '/', status_code=302, target_status_code=200, msg_prefix='')
 
-
     def test_simple_user_connection(self):
         """
         Simple user:

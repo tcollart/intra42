@@ -35,6 +35,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django_bootstrap_breadcrumbs',
     'bootstrap3',
+    'apps.admincustom',
     'apps.core',
     'apps.forum',
     'apps.tickets',

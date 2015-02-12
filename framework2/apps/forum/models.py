@@ -1,21 +1,6 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 from django.utils.text import slugify
-
-"""
-    Category:
-        - Name
-
-    ChildCategory(Category):
-        - Name
-        - Category
-
-    Threads:
-        - Author
-        - Message
-        - Category / ChildCategory
-        - First thread, Answer or Comment
-"""
 
 
 class BaseCategory(models.Model):

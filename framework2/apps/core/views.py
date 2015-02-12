@@ -3,6 +3,7 @@ from django.contrib.auth.views import login
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
+from django.utils import translation
 from django.views.generic import TemplateView, FormView
 from django.views.generic.list import ListView
 
@@ -11,6 +12,13 @@ from .forms import ContactForm
 
 class Index(TemplateView):
     template_name = 'index.html'
+
+    def get(self, request, *args, **kwargs):
+        language = request.GET.get("language")
+        if language:
+            translation.activate(language)
+            request.session[translation.LANGUAGE_SESSION_KEY] = language
+        return render(request, self.template_name)
 
 
 class Contact(FormView):

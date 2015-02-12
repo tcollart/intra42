@@ -1,4 +1,5 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, url
+
 from apps.forum.views import CreateThread
 
 urlpatterns = patterns('apps.forum.views',

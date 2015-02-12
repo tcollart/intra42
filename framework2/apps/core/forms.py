@@ -1,5 +1,3 @@
-__author__ = 'tcollart'
-
 from django import forms
 
 
