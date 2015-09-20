@@ -1,0 +1,6 @@
+Django==1.8.4
+django-bootstrap-breadcrumbs==0.7.1
+django-bootstrap3==6.2.2
+ldap3==0.9.9
+Pillow==2.9.0
+pyasn1==0.1.8
